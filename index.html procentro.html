@@ -233,23 +233,28 @@
 
   /* PLANES */
   .planes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    align-items: stretch;
-  }
-  @media (max-width: 980px) {
-    .planes-grid { grid-template-columns: 1fr; }
   }
   .plan {
     background: var(--blanco);
     border: 1px solid rgba(10, 40, 69, 0.1);
     border-radius: 24px;
-    padding: 40px 32px;
-    display: flex;
-    flex-direction: column;
+    padding: 40px 44px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 56px;
+    align-items: start;
     position: relative;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (max-width: 860px) {
+    .plan {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 36px 28px;
+    }
   }
   .plan:hover {
     transform: translateY(-6px);
@@ -286,9 +291,8 @@
   .plan-tag {
     position: absolute;
     top: -14px;
-    left: 28px;
-    right: 28px;
-    padding: 7px 14px;
+    left: 44px;
+    padding: 7px 16px;
     background: var(--naranja);
     color: var(--blanco);
     border-radius: 100px;
@@ -302,25 +306,24 @@
   }
   .plan > *:not(.plan-tag) { position: relative; z-index: 1; }
   .plan-name {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     color: var(--azul-marino);
     margin-bottom: 8px;
-    line-height: 1.3;
-    min-height: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
   .plan-desc {
     font-size: 14px;
     color: var(--gris-texto);
     margin-bottom: 28px;
-    min-height: 84px;
+    line-height: 1.5;
   }
   .plan.featured .plan-desc { color: rgba(255,255,255,0.7); }
   .plan-pricing {
-    padding: 24px 0;
+    padding: 24px 0 0;
     border-top: 1px solid rgba(10, 40, 69, 0.1);
-    border-bottom: 1px solid rgba(10, 40, 69, 0.1);
-    margin-bottom: 32px;
+    margin-bottom: 0;
   }
   .plan.featured .plan-pricing {
     border-color: rgba(255,255,255,0.15);
@@ -357,6 +360,14 @@
     color: var(--naranja);
     font-weight: 700;
   }
+  .plan-left {
+    position: relative;
+    z-index: 1;
+  }
+  .plan-right {
+    position: relative;
+    z-index: 1;
+  }
   .plan h4 {
     font-size: 13px;
     font-weight: 700;
@@ -367,7 +378,12 @@
   }
   .plan-features {
     list-style: none;
-    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 32px;
+  }
+  @media (max-width: 560px) {
+    .plan-features { grid-template-columns: 1fr; }
   }
   .plan-features li {
     display: flex;
@@ -491,7 +507,7 @@
     <div class="hero-meta">
       <div class="hero-meta-item">
         <div class="label">Dirigida a</div>
-        <div class="value">Martín Hidalgo · Procentro</div>
+        <div class="value">Equipo Procentro</div>
       </div>
       <div class="hero-meta-item">
         <div class="label">Preparada por</div>
@@ -542,72 +558,78 @@
 
       <!-- PLAN 1 -->
       <div class="plan">
-        <div class="plan-name">Prospección</div>
-        <div class="plan-desc">Pipeline activo, 100% variable. Solo paga por reunión presentada.</div>
-
-        <div class="plan-pricing">
-          <div class="plan-fee-block">
-            <div class="plan-fee">$0</div>
-            <div class="plan-fee-label">Fee fijo mensual</div>
+        <div class="plan-left">
+          <div class="plan-name">Prospección</div>
+          <div class="plan-desc">Pipeline activo, 100% variable. Solo paga por reunión presentada.</div>
+          <div class="plan-pricing">
+            <div class="plan-fee-block">
+              <div class="plan-fee">$0</div>
+              <div class="plan-fee-label">Fee fijo mensual</div>
+            </div>
+            <div class="plan-variable"><strong>2,2 UF + IVA</strong> por reunión presentada</div>
           </div>
-          <div class="plan-variable"><strong>2,2 UF + IVA</strong> por reunión presentada</div>
         </div>
-
-        <h4>¿Qué incluye?</h4>
-        <ul class="plan-features">
-          <li>Prospección basada en ICP personificado y alineado entre ambas partes</li>
-          <li>Equipo SDR dedicado a Procentro</li>
-          <li>Acceso a Next Meeting: reportería y seguimiento de reuniones</li>
-          <li>Briefings previos a cada reunión con contexto del prospecto</li>
-        </ul>
+        <div class="plan-right">
+          <h4>¿Qué incluye?</h4>
+          <ul class="plan-features">
+            <li>Prospección basada en ICP personificado y alineado entre ambas partes</li>
+            <li>Equipo SDR dedicado a Procentro</li>
+            <li>Acceso a Next Meeting: reportería y seguimiento de reuniones</li>
+            <li>Briefings previos a cada reunión con contexto del prospecto</li>
+          </ul>
+        </div>
       </div>
 
       <!-- PLAN 2 -->
       <div class="plan">
-        <div class="plan-name">Prospección + Performance</div>
-        <div class="plan-desc">Suma campañas digitales para capturar demanda activa en paralelo a la prospección.</div>
-
-        <div class="plan-pricing">
-          <div class="plan-fee-block">
-            <div class="plan-fee">30 UF</div>
-            <div class="plan-fee-label">+ IVA mensual · fee fijo</div>
+        <div class="plan-left">
+          <div class="plan-name">Prospección + Performance</div>
+          <div class="plan-desc">Suma campañas digitales para capturar demanda activa en paralelo a la prospección.</div>
+          <div class="plan-pricing">
+            <div class="plan-fee-block">
+              <div class="plan-fee">30 UF</div>
+              <div class="plan-fee-label">+ IVA mensual · fee fijo</div>
+            </div>
+            <div class="plan-variable"><strong>2,2 UF + IVA</strong> por reunión presentada</div>
           </div>
-          <div class="plan-variable"><strong>2,2 UF + IVA</strong> por reunión presentada</div>
         </div>
-
-        <h4>Incluye todo lo anterior +</h4>
-        <ul class="plan-features">
-          <li>Auditoría inicial y diseño de estrategia digital</li>
-          <li>Administración de Google Ads (búsqueda, display, remarketing)</li>
-          <li>Administración de Meta Ads (Instagram + Facebook)</li>
-          <li>Diseño de piezas gráficas para campañas</li>
-          <li>Optimización semanal y reportería mensual</li>
-          <li>Gestión integral de inversión en medios</li>
-        </ul>
+        <div class="plan-right">
+          <h4>Incluye todo lo anterior +</h4>
+          <ul class="plan-features">
+            <li>Auditoría inicial y diseño de estrategia digital</li>
+            <li>Administración de Google Ads (búsqueda, display, remarketing)</li>
+            <li>Administración de Meta Ads (Instagram + Facebook)</li>
+            <li>Diseño de piezas gráficas para campañas</li>
+            <li>Optimización semanal y reportería mensual</li>
+            <li>Gestión integral de inversión en medios</li>
+          </ul>
+        </div>
       </div>
 
       <!-- PLAN 3 -->
       <div class="plan featured">
         <div class="plan-tag">RECOMENDADO SEGÚN REUNIÓN EN TERRENO</div>
-        <div class="plan-name">Prospección + Performance + Creativos</div>
-        <div class="plan-desc">El pack completo: prospección, campañas y producción audiovisual propia en bodegas Procentro.</div>
-
-        <div class="plan-pricing">
-          <div class="plan-fee-block">
-            <div class="plan-fee">62 UF</div>
-            <div class="plan-fee-label">+ IVA mensual · fee fijo</div>
+        <div class="plan-left">
+          <div class="plan-name">Prospección + Performance + Creativos</div>
+          <div class="plan-desc">El pack completo: prospección, campañas y producción audiovisual propia en bodegas Procentro.</div>
+          <div class="plan-pricing">
+            <div class="plan-fee-block">
+              <div class="plan-fee">62 UF</div>
+              <div class="plan-fee-label">+ IVA mensual · fee fijo</div>
+            </div>
+            <div class="plan-variable"><strong>2,2 UF + IVA</strong> por reunión presentada</div>
           </div>
-          <div class="plan-variable"><strong>2,2 UF + IVA</strong> por reunión presentada</div>
         </div>
-
-        <h4>Incluye todo lo anterior +</h4>
-        <ul class="plan-features">
-          <li>Sesión mensual de filmación en bodegas Procentro</li>
-          <li>Producción audiovisual: reels, ads verticales, hero videos</li>
-          <li>Piezas gráficas segmentadas por target (ecommerce, importadores, pymes)</li>
-          <li>Administración de redes sociales con calendario editorial</li>
-          <li>Estrategia de contenido alineada con campañas activas</li>
-        </ul>
+        <div class="plan-right">
+          <h4>Incluye todo lo anterior +</h4>
+          <ul class="plan-features">
+            <li>Sesión mensual de filmación en bodegas Procentro</li>
+            <li>Producción audiovisual: reels, ads verticales, hero videos</li>
+            <li>Piezas gráficas segmentadas por target (ecommerce, importadores, pymes)</li>
+            <li>Administración de redes sociales con calendario editorial</li>
+            <li>Estrategia de contenido alineada con campañas activas</li>
+          </ul>
+        </div>
       </div>
 
     </div>
