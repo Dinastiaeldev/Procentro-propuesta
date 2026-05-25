@@ -409,6 +409,65 @@
   .plan.featured .plan-features li::before {
     color: var(--naranja);
   }
+  /* Lista NO incluye */
+  .plan-noinc {
+    list-style: none;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(10,40,69,0.15);
+  }
+  .plan.featured .plan-noinc { border-color: rgba(255,255,255,0.15); }
+  .plan-noinc li {
+    display: flex;
+    gap: 14px;
+    padding: 7px 0;
+    font-size: 13px;
+    color: var(--gris-texto);
+    line-height: 1.5;
+  }
+  .plan-noinc li::before {
+    content: "✕";
+    color: #C0392B;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+  .plan.featured .plan-noinc li { color: rgba(255,255,255,0.55); }
+  .plan-noinc-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gris-texto);
+    margin-bottom: 4px;
+  }
+  .plan.featured .plan-noinc-label { color: rgba(255,255,255,0.5); }
+  /* Precio CLP más chico bajo el número */
+  .plan-fee.clp { font-size: 38px; }
+  .plan-emphasis {
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: rgba(242,101,34,0.12);
+    border-left: 3px solid var(--naranja);
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.92);
+  }
+  /* Bloque servicio único Prospección */
+  .servicio-unico {
+    background: var(--azul-claro);
+    border-radius: 24px;
+    padding: 40px 44px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 56px;
+    align-items: start;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 860px) {
+    .servicio-unico { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
+  }
 
   /* INVERSIÓN MEDIOS */
   .inversion { background: var(--gris-suave); }
@@ -547,88 +606,127 @@
   </div>
 </section>
 
-<!-- PLANES -->
+<!-- PROSPECCIÓN -->
 <section>
   <div class="container">
-    <div class="section-label">PLANES</div>
-    <h2 class="section-title">Tres formas de <em>trabajar</em> juntos</h2>
-    <p class="section-subtitle">Diseñamos tres niveles escalables. Cada plan suma al anterior, permitiendo activar capas según los objetivos comerciales de Procentro en cada momento.</p>
+    <div class="section-label">SERVICIO DE PROSPECCIÓN</div>
+    <h2 class="section-title">Pipeline comercial <em>activo</em></h2>
+    <p class="section-subtitle">Un servicio independiente y 100% variable: solo pagas por cada reunión presentada entre tu ejecutivo y el prospecto. Funciona solo o como complemento a cualquier plan de marketing.</p>
+
+    <div class="servicio-unico">
+      <div class="plan-left">
+        <div class="plan-name">Prospección</div>
+        <div class="plan-desc">Generación de reuniones con tu cliente ideal. Sin fee fijo: pagas solo por resultado.</div>
+        <div class="plan-pricing">
+          <div class="plan-fee-block">
+            <div class="plan-fee">2,2 UF</div>
+            <div class="plan-fee-label">+ IVA por reunión presentada</div>
+          </div>
+        </div>
+      </div>
+      <div class="plan-right">
+        <h4>¿Qué incluye?</h4>
+        <ul class="plan-features">
+          <li>Prospección basada en ICP personificado y alineado entre ambas partes</li>
+          <li>Equipo SDR dedicado a Procentro</li>
+          <li>Acceso a Next Meeting: reportería y seguimiento de reuniones</li>
+          <li>Briefings previos a cada reunión con contexto del prospecto</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES MARKETING -->
+<section>
+  <div class="container">
+    <div class="section-label">PLANES DE MARKETING</div>
+    <h2 class="section-title">Tres niveles de <em>gestión</em></h2>
+    <p class="section-subtitle">Planes escalables de gestión de marca, contenido y campañas. Cada uno suma al anterior, para activar capas según los objetivos de Procentro.</p>
 
     <div class="planes-grid">
 
-      <!-- PLAN 1 -->
+      <!-- PLAN 1: GESTIÓN DE REDES -->
       <div class="plan">
         <div class="plan-left">
-          <div class="plan-name">Prospección</div>
-          <div class="plan-desc">Pipeline activo, 100% variable. Solo paga por reunión presentada.</div>
+          <div class="plan-name">Gestión de redes</div>
+          <div class="plan-desc">Presencia constante en redes: contenido editado y publicación recurrente con tu material.</div>
           <div class="plan-pricing">
             <div class="plan-fee-block">
-              <div class="plan-fee">$0</div>
-              <div class="plan-fee-label">Fee fijo mensual</div>
+              <div class="plan-fee">18 UF</div>
+              <div class="plan-fee-label">+ IVA mensual · ref. $727.000 CLP</div>
             </div>
-            <div class="plan-variable"><strong>2,2 UF + IVA</strong> por reunión presentada</div>
           </div>
         </div>
         <div class="plan-right">
           <h4>¿Qué incluye?</h4>
           <ul class="plan-features">
-            <li>Prospección basada en ICP personificado y alineado entre ambas partes</li>
-            <li>Equipo SDR dedicado a Procentro</li>
-            <li>Acceso a Next Meeting: reportería y seguimiento de reuniones</li>
-            <li>Briefings previos a cada reunión con contexto del prospecto</li>
+            <li>3 publicaciones semanales (lun, mié, vie) — 12 posts/mes, carrusel 5-10 slides</li>
+            <li>5 historias semanales</li>
+            <li>Edición de gráficos a partir de material stock provisto por el cliente</li>
+            <li>5 videos al mes generados con IA en base a los productos</li>
+            <li>Onboarding: brief inicial + guía de marca + 2 reuniones de setup</li>
+          </ul>
+          <div class="plan-noinc-label" style="margin-top:20px;padding-top:16px;border-top:1px dashed rgba(10,40,69,0.15);">No incluye</div>
+          <ul class="plan-noinc" style="margin-top:0;padding-top:8px;border:none;">
+            <li>Gestión de Paid Media</li>
+            <li>Edición de videos reales del cliente</li>
+            <li>Jornadas de producción</li>
           </ul>
         </div>
       </div>
 
-      <!-- PLAN 2 -->
+      <!-- PLAN 2: + CAMPAÑAS + CONTENIDO REAL -->
       <div class="plan">
         <div class="plan-left">
-          <div class="plan-name">Prospección + Performance</div>
-          <div class="plan-desc">Suma campañas digitales para capturar demanda activa en paralelo a la prospección.</div>
+          <div class="plan-name">Gestión de redes + Campañas + Contenido real</div>
+          <div class="plan-desc">Suma campañas de pauta y edición de video real para acelerar resultados.</div>
           <div class="plan-pricing">
             <div class="plan-fee-block">
-              <div class="plan-fee">30 UF</div>
-              <div class="plan-fee-label">+ IVA mensual · fee fijo</div>
+              <div class="plan-fee">39 UF</div>
+              <div class="plan-fee-label">+ IVA mensual · ref. $1.576.000 CLP</div>
             </div>
-            <div class="plan-variable"><strong>2,2 UF + IVA</strong> por reunión presentada</div>
           </div>
         </div>
         <div class="plan-right">
           <h4>Incluye todo lo anterior +</h4>
           <ul class="plan-features">
-            <li>Auditoría inicial y diseño de estrategia digital</li>
-            <li>Administración de Google Ads (búsqueda, display, remarketing)</li>
-            <li>Administración de Meta Ads (Instagram + Facebook)</li>
-            <li>Diseño de piezas gráficas para campañas</li>
-            <li>Optimización semanal y reportería mensual</li>
-            <li>Gestión integral de inversión en medios</li>
+            <li>Gestión de pauta: campañas en Meta Ads y TikTok Ads (inversión mínima USD 200/mes)</li>
+            <li>Edición de video real: hasta 5 videos/mes (founders, tienda, equipo)</li>
+            <li>Reporte mensual completo + métricas de campañas en software NextLike</li>
+            <li>Onboarding: brief + estrategia de pauta + setup de píxeles de tracking</li>
+          </ul>
+          <div class="plan-noinc-label" style="margin-top:20px;padding-top:16px;border-top:1px dashed rgba(10,40,69,0.15);">No incluye</div>
+          <ul class="plan-noinc" style="margin-top:0;padding-top:8px;border:none;">
+            <li>Jornada de producción audiovisual en terreno</li>
           </ul>
         </div>
       </div>
 
-      <!-- PLAN 3 -->
+      <!-- PLAN 3: SERVICIO INTEGRAL -->
       <div class="plan featured">
         <div class="plan-tag">RECOMENDADO SEGÚN REUNIÓN EN TERRENO</div>
         <div class="plan-left">
-          <div class="plan-name">Prospección + Performance + Creativos</div>
-          <div class="plan-desc">El pack completo: prospección, campañas y producción audiovisual propia en bodegas Procentro.</div>
+          <div class="plan-name">Servicio integral</div>
+          <div class="plan-desc">El pack completo: producción audiovisual propia en terreno y dirección creativa dedicada.</div>
           <div class="plan-pricing">
             <div class="plan-fee-block">
-              <div class="plan-fee">62 UF</div>
-              <div class="plan-fee-label">+ IVA mensual · fee fijo</div>
+              <div class="plan-fee">60 UF</div>
+              <div class="plan-fee-label">+ IVA mensual · ref. $2.424.000 CLP</div>
             </div>
-            <div class="plan-variable"><strong>2,2 UF + IVA</strong> por reunión presentada</div>
           </div>
         </div>
         <div class="plan-right">
           <h4>Incluye todo lo anterior +</h4>
           <ul class="plan-features">
-            <li>Sesión mensual de filmación en bodegas Procentro</li>
-            <li>Producción audiovisual: reels, ads verticales, hero videos</li>
-            <li>Piezas gráficas segmentadas por target (ecommerce, importadores, pymes)</li>
-            <li>Administración de redes sociales con calendario editorial</li>
-            <li>Estrategia de contenido alineada con campañas activas</li>
+            <li>Jornada de producción audiovisual mensual: un productor de nuestro equipo graba en terreno</li>
+            <li>Director creativo asignado</li>
+            <li>Reportería premium: reporte mensual con insights y plan de mejora</li>
+            <li>Onboarding: brief + estrategia + plan de jornadas + tracking completo</li>
           </ul>
+          <div class="plan-emphasis">
+            Para llegar al cliente ideal hay que crear el contenido audiovisual pensado específicamente para ese cliente — no contenido genérico. Eso es lo que este plan resuelve: dejas de tener que grabarte tú y produces material a la medida de cada segmento.
+          </div>
         </div>
       </div>
 
